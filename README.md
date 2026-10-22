@@ -1,4 +1,5 @@
 <img width="561" height="291" alt="image" src="https://github.com/user-attachments/assets/fe6b5b32-c589-4aed-8fff-a5aa650c2194" />
+
 # Tinh nang
 
 - **Hieu suat cao:** Su dung `asyncio` va `aiohttp` de thuc hien cac request giup tang toc do thu thap du lieu dang ke.
