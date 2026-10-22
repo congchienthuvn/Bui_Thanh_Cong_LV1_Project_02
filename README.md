@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <img width="561" height="291" alt="image" src="https://github.com/user-attachments/assets/fe6b5b32-c589-4aed-8fff-a5aa650c2194" />
 ## Tinh nang
 
@@ -20,3 +21,5 @@ Project02/
 ├── product_ids.csv           # File dau vao chua danh sach Product ID cua Tiki
 ├── danh_sach_loi.json        # File luu tru cac ID gap loi trong qua trinh cao
 └── crawler.pid               # File quan ly tien trinh chay
+=======
+>>>>>>> Stashed changes
