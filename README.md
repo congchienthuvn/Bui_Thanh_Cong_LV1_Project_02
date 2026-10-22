@@ -1,6 +1,6 @@
 <<<<<<< Updated upstream
 <img width="561" height="291" alt="image" src="https://github.com/user-attachments/assets/fe6b5b32-c589-4aed-8fff-a5aa650c2194" />
-## Tinh nang
+# Tinh nang
 
 - **Hieu suat cao:** Su dung `asyncio` va `aiohttp` de thuc hien cac request giup tang toc do thu thap du lieu dang ke.
 - **Quan ly Checkpoint:** Tu dong chia nho du lieu thanh cac phin (chunk) 1000 san pham moi file va bo qua cac phan da cào thanh cong neu chay lai.
@@ -10,7 +10,7 @@
 
 ---
 
-## Cau truc thu muc du an
+# Cau truc thu muc du an
 
 ```text
 Project02/
