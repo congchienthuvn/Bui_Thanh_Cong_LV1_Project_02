@@ -1,46 +1,38 @@
-# High-Performance Asynchronous Data Pipeline & Web Scraper for E-Commerce
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![AsyncIO](https://img.shields.io/badge/AsyncIO-Concurrency-orange?style=for-the-badge)
-![Aiohttp](https://img.shields.io/badge/Aiohttp-Async%20HTTP-green?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
-
-</div>
+# Data Pipeline & Web Scraper
 
 ## Overview
 
-A robust, production-grade asynchronous ETL pipeline designed for extracting, transforming, and loading (ETL) large-scale product catalogs from e-commerce APIs (Tiki). Built with a focus on fault tolerance, concurrency control, and atomic file operations to handle millions of records reliably in distributed or resource-constrained environments.
+A robust, production-grade asynchronous ETL pipeline engineered for extracting, transforming, and loading (ETL) large-scale product catalogs from e-commerce platforms (Tiki). Built with a core focus on extreme concurrency, fault tolerance, atomic file transactions, and strict rate-limiting to process millions of records reliably in resource-constrained environments.
 
 ---
 
 ## Architecture & Core Features
 
-* **Asynchronous I/O Engine**: Leverages `asyncio` and `aiohttp` to manage thousands of concurrent HTTP connections within a single-threaded event loop, maximizing network throughput without CPU overhead.
-* **Concurrency Limiting (`Semaphore`)**: Implements strict rate-limiting to prevent server overload and evade automated rate-limit triggers (HTTP 429/403).
-* **Idempotent Checkpointing**: Splits datasets into manageable chunks, automatically skipping previously processed partitions to support seamless resumability after interruptions.
-* **Fault Tolerance & Exponential Backoff**: Multi-tier error handling mechanism featuring automatic retries with exponential backoff and a dedicated dead-letter queue (`danh_sach_loi.json`) for failed payloads.
-* **Atomic File Persistence**: Utilizes atomic write operations (`.tmp` staging followed by `os.replace`) to eliminate data corruption risks during power outages or sudden process kills.
-* **Data Sanitization & Normalization**: Strips malicious HTML tags, normalizes Unicode strings to NFC format, and strips zero-width/hidden characters using high-performance Regular Expressions and BeautifulSoup.
+* **Asynchronous Concurrency Engine**: Leverages Python's `asyncio` and `aiohttp` to manage thousands of non-blocking HTTP requests within a single-threaded event loop, maximizing network throughput without CPU overhead.
+* **Controlled Concurrency (`Semaphore`)**: Implements strict rate-limiting via semaphores to prevent local resource exhaustion and evade automated anti-bot triggers (HTTP 429/403).
+* **Idempotent Partitioned Checkpointing**: Automatically segments massive datasets into structured chunks and skips pre-existing partitions, allowing seamless pipeline resumability after interruptions.
+* **Multi-Tier Fault Tolerance & Exponential Backoff**: Features automated retry policies with exponential backoff delays and a dedicated dead-letter queue (`danh_sach_loi.json`) to isolate permanently failed payloads.
+* **Atomic File Persistence**: Utilizes atomic write strategies (staging to `.tmp` files followed by `os.replace`) to completely eliminate data corruption risks during sudden process terminations or power failures.
+* **Advanced Data Sanitization**: Strips malicious HTML structures, normalizes Unicode strings to NFC standard, and removes zero-width/hidden whitespace characters using compiled Regular Expressions and BeautifulSoup.
 
 ---
 
 ## Project Structure
 
 ```text
-Project02/
+tiki-async-crawler/
 │
 ├── data/                    # Input dataset storage
-│   └── product_ids.csv      # Source product IDs
+│   └── product_ids.csv      # Source product IDs repository
 │
-├── output/                  # Partitioned JSON outputs & dead-letter queue
+├── output/                  # Partitioned JSON chunks & dead-letter queue
 │
 ├── src/                     # Core application modules
-│   ├── config.py            # Global configuration constants
-│   ├── cleaner.py           # HTML parsing and data sanitization
-│   ├── crawler.py           # Async HTTP worker & retry logic
-│   └── storage.py           # PID lock, chunking, and file validation
+│   ├── __init__.py          # Package initializer
+│   ├── config.py            # Global pipeline configurations
+│   ├── cleaner.py           # HTML parsing and data sanitization logic
+│   ├── crawler.py           # Async HTTP worker & retry orchestration
+│   └── storage.py           # PID locking, chunking, and file validation
 │
 ├── requirements.txt         # Project dependencies
 ├── main.py                  # Pipeline orchestration entry point

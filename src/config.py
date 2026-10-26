@@ -1,5 +1,5 @@
 import os
-
+# cau hinh
 FILE_CSV = "data/product_ids.csv"
 THU_MUC_OUTPUT = "output"
 FILE_LOI = "output/danh_sach_loi.json"

@@ -2,7 +2,7 @@ import html
 import re
 import unicodedata
 from bs4 import BeautifulSoup
-
+# clean data
 KY_TU_DAC_BIET = re.compile(r"[\u200b\u200c\u200d\u2060\ufeff]")
 
 def lam_sach_mo_ta(raw):

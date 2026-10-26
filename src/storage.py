@@ -4,7 +4,7 @@ import pandas as pd
 import asyncio
 from src.config import FILE_CSV, THU_MUC_OUTPUT, FILE_LOI, FILE_PID
 from src.crawler import tai_san_pham
-
+# quan ly pid va file
 def quan_ly_pid():
     if os.path.exists(FILE_PID):
         try:

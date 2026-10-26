@@ -2,7 +2,7 @@ import asyncio
 import random
 from src.config import API_URL, SO_LAN_THU_LAI
 from src.cleaner import phan_tich_san_pham
-
+# crawl sp
 async def tai_san_pham(session, sem, pid):
     url = API_URL.format(pid)
     for lan_thu in range(SO_LAN_THU_LAI):
