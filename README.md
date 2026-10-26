@@ -1,13 +1,12 @@
 # Tiki Async Crawler — ETL Pipeline
 
-An asynchronous Python ETL pipeline for extracting, transforming, and storing product catalog data from Tiki.
+Python ETL pipeline for extracting, transforming, and storing product catalog data from Tiki.
 
 ## Tech Stack
 
 - **Core:** Python, `asyncio`, `aiohttp`
 - **Data Processing:** `pandas`, BeautifulSoup4, Regular Expressions
-- **Fault Tolerance:** Exponential backoff, PID-based process locking, atomic file writes, Dead-Letter Queue (DLQ)
-- **Deployment:** Docker, Docker Compose, Apache Airflow (planned integration)
+
 
 ## Project Structure
 
